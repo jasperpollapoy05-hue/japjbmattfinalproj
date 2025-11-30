@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matt Kean Nerecena - Profile</title>
+<link rel="stylesheet" href="profile.css">
+
+<style>
+  body {
+    background: url("Matt.png") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .achievements-gallery {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .achievements-gallery img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid var(--accent);
+    object-fit: cover;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .achievements-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent);
+  }
+
+  .video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .video-box {
+    background: black;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .close-video {
+    background: var(--accent);
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+  }
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgmusic" autoplay loop hidden>
+  <source src="matt.mp3" type="audio/mpeg">
+</audio>
+
+<a href="index.html" class="back-btn slide-left">← Back to Home</a>
+
+<div class="profile-switch slide-left">
+  <a href="japoy.html" class="switch-btn">Japoy</a>
+  <a href="Matt.html" class="switch-btn">Matt</a>
+</div>
+
+<header class="slide-up">
+  <h1>Matt Kean Nerecena (Matt)</h1>
+  <p>Student | Future Web & Software Developer</p>
+  <img src="Mattpic.jpg" class="profile-pic">
+</header>
+
+<div class="menu-buttons slide-right">
+  <button onclick="showSection('about')">About Me</button>
+  <button onclick="showSection('hobbies')">Hobbies</button>
+  <button onclick="showSection('music')">Favorite Music</button>
+  <button onclick="showSection('achievements')">Achievements</button>
+  <button onclick="showSection('contact')">Contact</button>
+  <button onclick="openVid()">Tripping ni Matt</button>
+</div>
+
+<main>
+
+  <section id="about" class="hidden fade-in">
+    <h2>About Me</h2>
+    <p>
+      Hi! I’m Matt, a student passionate about technology and continuous
+      learning. My goal is to become a skilled web and software developer
+      who can combine creativity and logic to build innovative solutions.
+    </p>
+    <ul>
+      <li><strong>Age:</strong> 19 years old</li>
+      <li><strong>Address:</strong> Blk. 29 Lt. 11 Florvel Homes Subd. Brgy. Buray Oton, Iloilo, Philippines</li>
+      <li><strong>School:</strong> West Visayas State University</li>
+      <li><strong>Section:</strong> BSIT-1A</li>
+    </ul>
+  </section>
+
+  <section id="hobbies" class="hidden fade-in">
+    <h2>Hobbies & Interests</h2>
+    <ul>
+      <li>Coding</li>
+      <li>Badminton</li>
+      <li>Gaming</li>
+      <li>Research</li>
+    </ul>
+  </section>
+
+  <section id="music" class="hidden fade-in">
+    <h2>Favorite Music</h2>
+    <p>
+      <a href="https://youtu.be/SceNaAHOWQc?si=0UrHV2xWWNSiPMf2" target="_blank">
+        🎵 Vicinity of Obscenity – System of a Down
+      </a>
+    </p>
+  </section>
+
+  <section id="achievements" class="hidden fade-in">
+    <h2>🏆 Achievements</h2>
+    <p>Here are some of my achievements:</p>
+
+    <div class="achievements-gallery">
+      <img src="mattach.jpg" alt="Achievement 1">
+      <img src="mattach2.jpg" alt="Achievement 2">
+    </div>
+  </section>
+
+  <section id="contact" class="hidden fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:mattkean.nerecena@wvsu.edu.ph">mattkean.nerecena@wvsu.edu.ph</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/matt_likesrice" target="_blank">@matt_likesrice</a></p>
+  </section>
+
+</main>
+
+<footer class="slide-up">
+  <p>&copy; 2025 Matt Kean Nerecena. All rights reserved.</p>
+</footer>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-box">
+    <video id="mattVid" width="350" controls>
+      <source src="mattrip.mp4" type="video/mp4">
+    </video>
+    <button class="close-video" onclick="closeVid()">Close</button>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+    let section = document.getElementById(id);
+    section.classList.remove("hidden");
+    section.classList.add("fade-in");
+    window.scrollTo(0, 350);
+  }
+
+  let modal = document.getElementById("videoModal");
+  let vid = document.getElementById("mattVid");
+  let bg = document.getElementById("bgmusic");
+
+  function openVid() {
+    modal.style.display = "flex";
+    bg.pause();
+    vid.currentTime = 0;
+    vid.play();
+  }
+
+  function closeVid() {
+    modal.style.display = "none";
+    vid.pause();
+    bg.play();
+  }
+
+  vid.onended = () => {
+    modal.style.display = "none";
+    bg.play();
+  };
+</script>
+
+</body>
+</html>

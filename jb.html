@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason Benjamin Felizardo - Profile</title>
+ <link rel="stylesheet" href="profile.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background: url("JBBG.png") no-repeat center center fixed;
+    background-size: cover;
+  }
+   .achievements-gallery {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .achievements-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      object-fit: cover;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .achievements-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--accent);
+    }
+</style>
+
+</head>
+
+<body>
+
+<audio autoplay loop hidden>
+  <source src="JB.mp3" type="audio/mpeg">
+</audio>
+
+<a href="index.html" class="back-btn">← Back to Home</a>
+
+<div class="profile-switch slide-left">
+  <a href="japoy.html" class="switch-btn">Japoy</a>
+  <a href="Matt.html" class="switch-btn">Matt</a>
+</div>
+
+
+<header>
+  <h1>Jason Benjamin Felizardo (JB)</h1>
+  <p>Student | Future IT Professional</p>
+  <img src="JBpic.jpg" class="profile-pic">
+</header>
+
+<div class="menu-buttons">
+  <button onclick="showSection('about')">About</button>
+  <button onclick="showSection('hobbies')">Hobbies</button>
+  <button onclick="showSection('music')">Favorite Music</button>
+  <button onclick="showSection('achievements')">Achievements</button>
+  <button onclick="showSection('contact')">Contact</button>
+</div>
+
+<main>
+
+  <section id="about" class="hidden">
+    <h2>About Me</h2>
+    <p>
+      Hi! I’m JB, a dedicated student who loves learning about computers,
+      problem-solving, and technology. My goal is to become an IT
+      professional who can create innovative solutions to make digital
+      systems more efficient and user-friendly.
+    </p>
+    <ul>
+      <li><strong>Age:</strong> 19 years old</li>
+      <li><strong>Address:</strong> Brgy. Anilao, Pavia, Iloilo, Philippines</li>
+      <li><strong>School:</strong> West Visayas State University</li>
+      <li><strong>Section:</strong> BSIT-1A</li>
+    </ul>
+  </section>
+
+  <section id="hobbies" class="hidden">
+    <h2>Hobbies & Interests</h2>
+    <ul>
+      <li>Programming</li>
+      <li>Gaming</li>
+      <li>Listening to music</li>
+      <li>Learning new technologies</li>
+    </ul>
+  </section>
+
+  <section id="music" class="hidden">
+    <h2>Favorite Music</h2>
+    <p>
+      <a href="https://youtu.be/tMDFv5m18Pw?si=6dOJzaAudBsyPJRwtarget="_blank">
+        🎵 Crazy Train– Ozzy Osbourne
+      </a>
+    </p>
+  </section>
+
+  <section id="achievements" class="hidden fade-in">
+    <h2>🏆 Achievements</h2>
+    <p>Here are some of my achievements:</p>
+
+    <div class="achievements-gallery">
+      <img src="jbach.jpg" alt="Achievement 1">
+      <img src="jbach2.jpg" alt="Achievement 2">
+    </div>
+  </section>
+
+  <section id="contact" class="hidden fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:jasperpollapoy05@gmail.com">jasperpollapoy05@gmail.com</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/share/1GrEWGezHk/" target="_blank">My Facebook</a></p>
+  </section>
+
+  <section id="contact" class="hidden">
+    <h2>Contact</h2>
+   <p>Email: <a href="mailto:jasonbenjamine.felizardo@wvsu.edu.ph">jasonbenjamine.felizardo@wvsu.edu.ph</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/snappy_ironhand/" target="_blank">My Instagram</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Jason Benjamin Felizardo. All rights reserved.</p>
+</footer>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+    let section = document.getElementById(id);
+    section.classList.remove("hidden");
+    window.scrollTo(0, 350);
+  }
+</script>
+
+</body>
+</html>
